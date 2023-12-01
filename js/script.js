@@ -31,7 +31,6 @@ let visibility = setInterval(function(){
 
 setTimeout(function(){
     //dopo 30 secondi puoi inserire i numeri
-    let gameOver = false
     let i = 0;
     while ( i < numbers.length) {
         let try_num = parseInt(prompt(`Inserisci il ${i+1}° numero visualizzato`));
@@ -39,8 +38,9 @@ setTimeout(function(){
             i++;
         }else{
             //esco dal while
-            i = numbers.length;
             console.log('hai perso hai inserito un numero sbagliato');
+            i = numbers.length;
+            
         }
 
     }
