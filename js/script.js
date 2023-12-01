@@ -11,7 +11,14 @@ function generateNumber(array) {
     return num;
 }
 
-let numbers=[];
+let numbers = [];
+//geneare e inserire nell'array 5 numeri
+for (let i = 0; i < 5; i++) {
+    let number = generateNumber(numbers);
+    numbers.push(number);
+    console.log(numbers[i]);
+}
+
 let i = 0
 let visibility = setInterval(function(){
     i++;
