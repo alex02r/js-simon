@@ -19,14 +19,29 @@ for (let i = 0; i < 5; i++) {
     console.log(numbers[i]);
 }
 
-
-    //visualizziamo i 5 numeri per 30 secondi
+//visualizziamo i 5 numeri per 30 secondi
 let i = 0
 let visibility = setInterval(function(){
-    console.log(numbers);
     i++;
     console.log(i);
     if (i == 30) {
         clearInterval(visibility);
     }
 }, 1000);
+
+setTimeout(function(){
+    //dopo 30 secondi puoi inserire i numeri
+    let gameOver = false
+    let i = 0;
+    while ( i < numbers.length) {
+        let try_num = parseInt(prompt(`Inserisci il ${i+1}° numero visualizzato`));
+        if (numbers[i] == try_num) {
+            i++;
+        }else{
+            //esco dal while
+            i = numbers.length;
+            console.log('hai perso hai inserito un numero sbagliato');
+        }
+
+    }
+}, 30000);
