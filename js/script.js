@@ -26,13 +26,13 @@ let visibility = setInterval(function(){
     i++;
     console.log(i);
     if (i == 30) {
+        text.innerHTML = "";
         clearInterval(visibility);
     }
 }, 1000);
 
 setTimeout(function(){
     //dopo 30 secondi puoi inserire i numeri
-    text.innerText = "";
     let i = 0;
     while ( i < numbers.length) {
         let try_num = parseInt(prompt(`Inserisci il ${i+1}° numero visualizzato`));
