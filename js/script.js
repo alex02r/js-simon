@@ -11,12 +11,13 @@ function generateNumber(array) {
     return num;
 }
 
+const text = document.getElementById('text');
 let numbers = [];
 //geneare e inserire nell'array 5 numeri
 for (let i = 0; i < 5; i++) {
     let number = generateNumber(numbers);
     numbers.push(number);
-    console.log(numbers[i]);
+    text.innerText += ` ${numbers[i]}`;
 }
 
 //visualizziamo i 5 numeri per 30 secondi
@@ -31,6 +32,7 @@ let visibility = setInterval(function(){
 
 setTimeout(function(){
     //dopo 30 secondi puoi inserire i numeri
+    text.innerText = "";
     let i = 0;
     while ( i < numbers.length) {
         let try_num = parseInt(prompt(`Inserisci il ${i+1}° numero visualizzato`));
