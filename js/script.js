@@ -19,8 +19,11 @@ for (let i = 0; i < 5; i++) {
     console.log(numbers[i]);
 }
 
+
+    //visualizziamo i 5 numeri per 30 secondi
 let i = 0
 let visibility = setInterval(function(){
+    console.log(numbers);
     i++;
     console.log(i);
     if (i == 30) {
