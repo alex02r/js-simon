@@ -3,7 +3,7 @@ function generateNumber(array) {
     let num;
     let check_number = false;
     while (!check_number) {
-        num = Math.floor(Math.random()* 100 - 1);
+        num = Math.floor(Math.random()* 100 + 1);
         if (!array.includes(num)) {
              check_number = true;  
         }
@@ -33,23 +33,22 @@ function checkUserNumber(user_numbers, random_numbers) {
     let guessed = [];
     for (let i = 0; i < user_numbers.length; i++) {
         //controllo se il numero inserito è presente nella lista dei numeri
-        if(random_numbers[i] == user_numbers[i]){
+        if(random_numbers.includes(user_numbers[i])){
             guessed.push(user_numbers[i]);
         }
-        
     }
     return guessed
 }
 //funzione che stampa il risulatto a schermo
 function printResults(array) {
-    let text;
+    let final_text;
     if (array.length == 1) {
-        text = `Hai indovinato un numero: ${array}`;
+        final_text = `Hai indovinato un numero: ${array}`;
     }else{
-        text = `Hai indovinato ${array.length} numeri: ${array}`;
+        final_text = `Hai indovinato ${array.length} numeri: ${array}`;
     }
-
-    document.getElementById('text').innerText = text;
+    console.log(final_text);
+    document.getElementById('text').innerText = final_text;
 }
 
 let numbers = [];
@@ -62,7 +61,7 @@ for (let i = 0; i < 5; i++) {
 
 //visualizziamo i 5 numeri per 30 secondi
 
-let visibility = setInterval(clearDom, 1000);
+setInterval(clearDom, 5000);
 
 setTimeout(function(){
     //facciamo inserire i numeri all'utente
@@ -71,4 +70,4 @@ setTimeout(function(){
     let guessed_numbers = checkUserNumber(user_numbers, numbers);
 
     printResults(guessed_numbers);
-}, 30000);
+}, 6000);
