@@ -40,9 +40,18 @@ function checkUserNumber(user_numbers, random_numbers) {
     }
     return guessed
 }
+//funzione che stampa il risulatto a schermo
+function printResults(array) {
+    let text;
+    if (array.length == 1) {
+        text = `Hai indovinato un numero: ${array}`;
+    }else{
+        text = `Hai indovinato ${array.length} numeri: ${array}`;
+    }
 
+    document.getElementById('text').innerText = text;
+}
 
-const text = document.getElementById('text');
 let numbers = [];
 //geneare e inserire nell'array 5 numeri
 for (let i = 0; i < 5; i++) {
@@ -61,4 +70,5 @@ setTimeout(function(){
 
     let guessed_numbers = checkUserNumber(user_numbers, numbers);
 
+    printResults(guessed_numbers);
 }, 30000);
