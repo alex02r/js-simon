@@ -28,6 +28,19 @@ function getUserNumber() {
 
     return user_numbers;
 }
+//funzione che controlla i numeri inseriti dall'utente
+function checkUserNumber(user_numbers, random_numbers) {
+    let guessed = [];
+    for (let i = 0; i < user_numbers.length; i++) {
+        //controllo se il numero inserito è presente nella lista dei numeri
+        if(random_numbers[i] == user_numbers[i]){
+            guessed.push(user_numbers[i]);
+        }
+        
+    }
+    return guessed
+}
+
 
 const text = document.getElementById('text');
 let numbers = [];
@@ -45,5 +58,7 @@ let visibility = setInterval(clearDom, 1000);
 setTimeout(function(){
     //facciamo inserire i numeri all'utente
     let user_numbers = getUserNumber();
-    
+
+    let guessed_numbers = checkUserNumber(user_numbers, numbers);
+
 }, 30000);
