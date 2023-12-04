@@ -15,6 +15,19 @@ function generateNumber(array) {
 function clearDom() {
     document.getElementById('text').innerText = "Inserisci i numeri che hai appena visto";
 }
+//funzione che chiede all'utente di inserire i numeri
+function getUserNumber() {
+    const user_numbers = [];
+    while(user_numbers.length < 5){
+        let number = parseInt(prompt('Inserisci il numero'));
+
+        if (!isNaN(number)) {
+            user_numbers.push(number);
+        }
+    }
+
+    return user_numbers;
+}
 
 const text = document.getElementById('text');
 let numbers = [];
@@ -30,18 +43,7 @@ for (let i = 0; i < 5; i++) {
 let visibility = setInterval(clearDom, 1000);
 
 setTimeout(function(){
-    //dopo 30 secondi puoi inserire i numeri
-    let i = 0;
-    while ( i < numbers.length) {
-        let try_num = parseInt(prompt(`Inserisci il ${i+1}° numero visualizzato`));
-        if (numbers[i] == try_num) {
-            i++;
-        }else{
-            //esco dal while
-            console.log('hai perso hai inserito un numero sbagliato');
-            i = numbers.length;
-            
-        }
-
-    }
+    //facciamo inserire i numeri all'utente
+    let user_numbers = getUserNumber();
+    
 }, 30000);
