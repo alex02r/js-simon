@@ -11,6 +11,11 @@ function generateNumber(array) {
     return num;
 }
 
+//funzione che svuota il testo html
+function clearDom() {
+    document.getElementById('text').innerText = "Inserisci i numeri che hai appena visto";
+}
+
 const text = document.getElementById('text');
 let numbers = [];
 //geneare e inserire nell'array 5 numeri
@@ -21,15 +26,8 @@ for (let i = 0; i < 5; i++) {
 }
 
 //visualizziamo i 5 numeri per 30 secondi
-let i = 0
-let visibility = setInterval(function(){
-    i++;
-    console.log(i);
-    if (i == 30) {
-        text.innerHTML = "";
-        clearInterval(visibility);
-    }
-}, 1000);
+
+let visibility = setInterval(clearDom, 1000);
 
 setTimeout(function(){
     //dopo 30 secondi puoi inserire i numeri
